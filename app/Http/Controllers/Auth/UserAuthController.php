@@ -13,7 +13,8 @@ class UserAuthController extends Controller
         $data = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'image' => 'required|image|mimes:jpg,png,jpeg,svg,gif|max:2048'
         ]);
 
         $data['password'] = bcrypt($request->password);
